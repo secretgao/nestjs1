@@ -1,0 +1,234 @@
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[NestFactory][39m [32mStarting Nest application...[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[InstanceLoader][39m [32mFrontendModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[InstanceLoader][39m [32mBackendModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[InstanceLoader][39m [32mTypeOrmModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[InstanceLoader][39m [32mConfigHostModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[InstanceLoader][39m [32mConfigModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[InstanceLoader][39m [32mConfigModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:05 [32m    LOG[39m [33m[InstanceLoader][39m [32mAppModule dependencies initialized[39m
+2024-11-21 14:50:05 info: Query: SELECT VERSION() AS `version` -- Parameters: undefined
+2024-11-21 14:50:05 info: All classes found using provided glob pattern "/Users/xinyu/Desktop/work/node/qw/dist/**/*.entity{.ts,.js}" : "/Users/xinyu/Desktop/work/node/qw/dist/entity/instruction.entity.js,/Users/xinyu/Desktop/work/node/qw/dist/entity/group.entity.js,/Users/xinyu/Desktop/work/node/qw/dist/entity/admin_user.entity.js"
+2024-11-21 14:50:05 info: Query: START TRANSACTION -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: SELECT DATABASE() AS `db_name` -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: SELECT `TABLE_SCHEMA`, `TABLE_NAME`, `TABLE_COMMENT` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA` = 'qw' AND `TABLE_NAME` = 'admin_users' UNION SELECT `TABLE_SCHEMA`, `TABLE_NAME`, `TABLE_COMMENT` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA` = 'qw' AND `TABLE_NAME` = 'instruction' UNION SELECT `TABLE_SCHEMA`, `TABLE_NAME`, `TABLE_COMMENT` FROM `INFORMATION_SCHEMA`.`TABLES` WHERE `TABLE_SCHEMA` = 'qw' AND `TABLE_NAME` = 'group' -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'admin_users'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'instruction'
+                 UNION 
+                SELECT
+                    *
+                FROM
+                    `INFORMATION_SCHEMA`.`COLUMNS`
+                WHERE
+                    `TABLE_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'group'
+                 -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: SELECT * FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'qw'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'admin_users'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'qw'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'instruction'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'qw'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'group'
+            ) `kcu` WHERE `CONSTRAINT_NAME` = 'PRIMARY' -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: 
+            SELECT
+                `SCHEMA_NAME`,
+                `DEFAULT_CHARACTER_SET_NAME` as `CHARSET`,
+                `DEFAULT_COLLATION_NAME` AS `COLLATION`
+            FROM `INFORMATION_SCHEMA`.`SCHEMATA`
+             -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: 
+            SELECT
+                `s`.*
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'admin_users'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'instruction'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`STATISTICS`
+                WHERE
+                    `TABLE_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'group'
+            ) `s`
+            LEFT JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'admin_users'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'instruction'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'group'
+            ) `rc`
+                ON
+                    `s`.`INDEX_NAME` = `rc`.`CONSTRAINT_NAME`
+                    AND
+                    `s`.`TABLE_SCHEMA` = `rc`.`CONSTRAINT_SCHEMA`
+            WHERE
+                `s`.`INDEX_NAME` != 'PRIMARY'
+                AND
+                `rc`.`CONSTRAINT_NAME` IS NULL
+             -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: 
+            SELECT
+                `kcu`.`TABLE_SCHEMA`,
+                `kcu`.`TABLE_NAME`,
+                `kcu`.`CONSTRAINT_NAME`,
+                `kcu`.`COLUMN_NAME`,
+                `kcu`.`REFERENCED_TABLE_SCHEMA`,
+                `kcu`.`REFERENCED_TABLE_NAME`,
+                `kcu`.`REFERENCED_COLUMN_NAME`,
+                `rc`.`DELETE_RULE` `ON_DELETE`,
+                `rc`.`UPDATE_RULE` `ON_UPDATE`
+            FROM (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'qw'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'admin_users'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'qw'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'instruction'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`KEY_COLUMN_USAGE` `kcu`
+                WHERE
+                    `kcu`.`TABLE_SCHEMA` = 'qw'
+                    AND
+                    `kcu`.`TABLE_NAME` = 'group'
+            ) `kcu`
+            INNER JOIN (
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'admin_users'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'instruction'
+             UNION 
+                SELECT
+                    *
+                FROM `INFORMATION_SCHEMA`.`REFERENTIAL_CONSTRAINTS`
+                WHERE
+                    `CONSTRAINT_SCHEMA` = 'qw'
+                    AND
+                    `TABLE_NAME` = 'group'
+            ) `rc`
+                ON
+                    `rc`.`CONSTRAINT_SCHEMA` = `kcu`.`CONSTRAINT_SCHEMA`
+                    AND
+                    `rc`.`TABLE_NAME` = `kcu`.`TABLE_NAME`
+                    AND
+                    `rc`.`CONSTRAINT_NAME` = `kcu`.`CONSTRAINT_NAME`
+             -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: SELECT VERSION() AS `version` -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: SELECT * FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA` = 'qw' AND `TABLE_NAME` = 'typeorm_metadata' -- Parameters: undefined
+2024-11-21 14:50:05 info: Query: COMMIT -- Parameters: undefined
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[InstanceLoader][39m [32mTypeOrmCoreModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[InstanceLoader][39m [32mTypeOrmModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[InstanceLoader][39m [32mTypeOrmModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[InstanceLoader][39m [32mTypeOrmModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m  [32madmin user auth service init[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m  [32minstruction service init[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m  [32minstruction service init[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m  [32mgroup service init[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m  [32madmin init[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m  [32minstruction init[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[InstanceLoader][39m [32mWechatyModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[InstanceLoader][39m [32mAdminUsersModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[InstanceLoader][39m [32mInstructionModule dependencies initialized[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RoutesResolver][39m [32mAppController {/}:[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/, GET} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/upload, POST} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RoutesResolver][39m [32mAdminUsersController {/admin_users}:[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/admin_users/register, POST} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/admin_users/login, POST} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/admin_users/:id, PUT} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RoutesResolver][39m [32mInstructionController {/instruction}:[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/instruction/create, POST} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/instruction/:id, PUT} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RoutesResolver][39m [32mWechatyController {/wechaty}:[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/wechaty/rooms, GET} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/wechaty/rooms1, GET} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[RouterExplorer][39m [32mMapped {/wechaty/broadcast, POST} route[39m
+[32m[NestWinston][39m [32m18236[39m 2024/11/21 14:50:06 [32m    LOG[39m [33m[NestApplication][39m [32mNest application successfully started[39m

@@ -1,0 +1,9 @@
+PUT  http://localhost:3000/admin_users/2  HTTP/1.1
+
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwidXNlcm5hbWUiOiIxMjM0NTYiLCJpYXQiOjE3MzE5NDE5MTQsImV4cCI6MTczMTk0NTUxNH0.wztt8z92FQ9Ir1SO2rCkqKO9OUZ4WLSJx2rxSqU7DUQ
+content-type: application/json
+{
+   "username":"12",
+   "password":"2"
+}
+

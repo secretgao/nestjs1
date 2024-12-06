@@ -52,12 +52,20 @@ async function bootstrap() {
   SwaggerModule.setup('api-docs', app, document);
   app.useGlobalPipes(new ValidationPipe());
  
-  app.useStaticAssets(join(__dirname, '..', 'uploads'), {
-    prefix: '/uploads/',
+  /**
+   * 上传图片路径
+   */
+  app.useStaticAssets(join(__dirname, '..', 'uploads/img'), {
+    prefix: '/uploads/img',
   });
 
+  /**
+   * 上传文件路径
+   */
+  app.useStaticAssets(join(__dirname, '..', 'uploads/file'), {
+    prefix: '/uploads/file',
+  });
 
-
-  await app.listen(3000);
+  await app.listen(9999);
 }
 bootstrap();

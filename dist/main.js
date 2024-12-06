@@ -38,10 +38,13 @@ async function bootstrap() {
     const document = swagger_1.SwaggerModule.createDocument(app, config);
     swagger_1.SwaggerModule.setup('api-docs', app, document);
     app.useGlobalPipes(new validation_pipe_1.ValidationPipe());
-    app.useStaticAssets((0, path_1.join)(__dirname, '..', 'uploads'), {
-        prefix: '/uploads/',
+    app.useStaticAssets((0, path_1.join)(__dirname, '..', 'uploads/img'), {
+        prefix: '/uploads/img',
     });
-    await app.listen(3000);
+    app.useStaticAssets((0, path_1.join)(__dirname, '..', 'uploads/file'), {
+        prefix: '/uploads/file',
+    });
+    await app.listen(9999);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

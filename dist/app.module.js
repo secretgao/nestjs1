@@ -15,9 +15,8 @@ const typeorm_1 = require("@nestjs/typeorm");
 const frontend_module_1 = require("./frontend/frontend.module");
 const backend_module_1 = require("./backend/backend.module");
 const config_1 = require("@nestjs/config");
-const typeorm_log_1 = require("./common/typeorm_log");
-const request_middieware_1 = require("./middleware/request_middieware");
-const wechaty_service_1 = require("./service/wechaty.service");
+const typeorm_log_1 = require("./common/typeorm-log");
+const request_middieware_1 = require("./middleware/request-middieware");
 let AppModule = class AppModule {
     configure(consumer) {
         consumer
@@ -54,8 +53,8 @@ exports.AppModule = AppModule = __decorate([
             }),
         ],
         controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService, upload_service_1.UploadService, common_1.Logger, wechaty_service_1.WechatyService],
-        exports: [common_1.Logger, wechaty_service_1.WechatyService],
+        providers: [app_service_1.AppService, upload_service_1.UploadService, common_1.Logger],
+        exports: [common_1.Logger],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

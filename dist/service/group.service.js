@@ -21,33 +21,28 @@ let GroupService = class GroupService {
     constructor(groupRepository, logger) {
         this.groupRepository = groupRepository;
         this.logger = logger;
-        this.logger.log('group service init');
     }
-    async findAll(options) {
-        const { page, limit } = options;
-        const [data, total] = await this.groupRepository.findAndCount({
-            skip: (page - 1) * limit,
-            take: limit,
-            order: {
-                id: 'DESC',
-            },
-        });
-        return {
-            data,
-            total,
-            page,
-            limit,
-        };
+    async createOrUpdateGroup(createGroupDto) {
+        let group = await this.groupRepository.findOne({ where: { wx_id: createGroupDto.wx_id } });
+        const currentTime = new Date();
+        if (group) {
+            group.nick_name = createGroupDto.nick_name;
+            group.updated_at = currentTime;
+        }
+        else {
+            group = this.groupRepository.create(createGroupDto);
+            group.tag = '';
+            group.created_at = currentTime;
+        }
+        return this.groupRepository.save(group);
     }
-    async saveRooms(rooms) {
-        this.logger.log(rooms);
-        return rooms;
-    }
-    async updateInstruction(id) {
-        throw new common_1.HttpException('更新失败', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
-    }
-    async sendGroupMessage(SendGroupMessageDto) {
-        const { roomId, message } = SendGroupMessageDto;
+    async createOrUpdateGroups(createGroupDtos) {
+        this.logger.debug('sync group');
+        this.logger.debug(createGroupDtos);
+        const groups = await Promise.all(createGroupDtos.map(async (dto) => {
+            return this.createOrUpdateGroup(dto);
+        }));
+        return groups;
     }
 };
 exports.GroupService = GroupService;

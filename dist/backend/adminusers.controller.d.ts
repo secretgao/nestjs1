@@ -1,14 +1,22 @@
 import { Logger } from '@nestjs/common';
-import { AdminUsersAuthService } from '../service/admin_users_auth.service';
-import { CreateAdminUserDto } from '../dto/admin_users.dto';
-import { UpdateAdminPasswordDto } from 'src/dto/update_admin_users.dto';
+import { AdminUsersAuthService } from '../service/admin-users-auth.service';
+import { CreateAdminUserDto, LoginAdminUserDto } from '../dto/create-admin-users.dto';
+import { UpdateAdminPasswordDto } from 'src/dto/update-admin-users.dto';
+import { ApiResponseReturn } from '../common/api-response-return';
 export declare class AdminUsersController {
     private readonly AdminUsersAuthService;
     private readonly logger;
     constructor(AdminUsersAuthService: AdminUsersAuthService, logger: Logger);
-    register(adminUsersDto: CreateAdminUserDto): Promise<import("../common/api_response").ApiResponse<null>>;
-    login(adminUsersDto: CreateAdminUserDto): Promise<{
-        token: import("../common/api_response").ApiResponse<string>;
+    register(adminUsersDto: CreateAdminUserDto): Promise<ApiResponseReturn<null>>;
+    login(adminUsersDto: LoginAdminUserDto): Promise<{
+        token: ApiResponseReturn<string>;
     }>;
-    updateAdmin(id: string, UpdateAdminPasswordDto: UpdateAdminPasswordDto): Promise<import("../common/api_response").ApiResponse<string>>;
+    initPassword(id: number): Promise<ApiResponseReturn<any>>;
+    updateAdmin(id: number, UpdateAdminPasswordDto: UpdateAdminPasswordDto): Promise<ApiResponseReturn<string>>;
+    findAll(page?: number, limit?: number, username?: string, id?: number, status?: number): Promise<ApiResponseReturn<any>>;
+    findinfo(user: any): ApiResponseReturn<{
+        user: any;
+    }>;
+    remove(id: string): Promise<ApiResponseReturn<null>>;
+    updateStatus(id: string, status: number): Promise<ApiResponseReturn<unknown>>;
 }

@@ -19,17 +19,25 @@ __decorate([
     __metadata("design:type", Number)
 ], Group.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true, charset: 'utf8mb4', collation: 'utf8mb4_0900_bin', comment: '群聊id' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 100, nullable: true, comment: '群聊id' }),
     __metadata("design:type", String)
-], Group.prototype, "roomId", void 0);
+], Group.prototype, "wx_id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar', length: 255, nullable: true, collation: 'utf8mb4_0900_bin', comment: '群聊名称' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 255, nullable: true, comment: '群聊名称' }),
     __metadata("design:type", String)
-], Group.prototype, "topic", void 0);
+], Group.prototype, "nick_name", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ type: 'varchar', length: 255, collation: 'utf8mb4_0900_bin', comment: '群标签' }),
+    (0, typeorm_1.Column)({ type: 'varchar', length: 255, comment: '群标签' }),
     __metadata("design:type", String)
 ], Group.prototype, "tag", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ type: 'timestamp', precision: 6, default: () => 'CURRENT_TIMESTAMP(6)', comment: '创建时间' }),
+    __metadata("design:type", Date)
+], Group.prototype, "created_at", void 0);
+__decorate([
+    (0, typeorm_1.UpdateDateColumn)({ type: 'timestamp', precision: 6, default: () => 'CURRENT_TIMESTAMP(6)', onUpdate: 'CURRENT_TIMESTAMP(6)', comment: '更新时间' }),
+    __metadata("design:type", Date)
+], Group.prototype, "updated_at", void 0);
 exports.Group = Group = __decorate([
     (0, typeorm_1.Entity)('group')
 ], Group);

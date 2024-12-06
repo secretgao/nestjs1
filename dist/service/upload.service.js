@@ -8,14 +8,28 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UploadService = void 0;
 const common_1 = require("@nestjs/common");
-const path_1 = require("path");
+const path = require("path");
 const fs_extra_1 = require("fs-extra");
+const fs_1 = require("fs");
 let UploadService = class UploadService {
-    async saveFile(file) {
-        const uploadDir = (0, path_1.join)(__dirname, '..', '..', 'uploads');
+    async saveImg(file) {
+        const uploadDir = path.join(__dirname, '..', '..', 'uploads', 'img');
         await (0, fs_extra_1.ensureDir)(uploadDir);
-        const filePath = (0, path_1.join)(uploadDir, file.originalname);
+        const filePath = path.join(uploadDir, file.originalname);
         await (0, fs_extra_1.writeFile)(filePath, file.buffer);
+        return filePath;
+    }
+    async saveFile(file) {
+        const uploadDir = path.join(__dirname, '..', '..', 'uploads', 'file');
+        await (0, fs_extra_1.ensureDir)(uploadDir);
+        const filePath = path.join(uploadDir, file.originalname);
+        await (0, fs_extra_1.writeFile)(filePath, file.buffer);
+        return filePath;
+    }
+    async getFilePath(filename) {
+        const uploadPath = path.join(__dirname, '..', '..', 'uploads', 'file');
+        const filePath = path.join(uploadPath, filename);
+        await fs_1.promises.access(filePath);
         return filePath;
     }
 };

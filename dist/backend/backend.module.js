@@ -8,9 +8,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BackendModule = void 0;
 const common_1 = require("@nestjs/common");
-const admin_users_module_1 = require("../module/admin_users.module");
+const admin_users_module_1 = require("../module/admin-users.module");
 const instruction_module_1 = require("../module/instruction.module");
-const wechaty_module_1 = require("../module/wechaty.module");
+const keywords_reply_module_1 = require("../module/keywords-reply.module");
+const mass_message_record_module_1 = require("../module/mass-message-record.module");
+const customer_manage_module_1 = require("../module/customer-manage.module");
+const instruction_allocation_module_1 = require("../module/instruction-allocation.module");
 let BackendModule = class BackendModule {
 };
 exports.BackendModule = BackendModule;
@@ -19,7 +22,10 @@ exports.BackendModule = BackendModule = __decorate([
         imports: [
             admin_users_module_1.AdminUsersModule,
             instruction_module_1.InstructionModule,
-            wechaty_module_1.WechatyModule
+            keywords_reply_module_1.KeywordsReplyModule,
+            mass_message_record_module_1.MassMessageRecordModules,
+            customer_manage_module_1.CustomerManageModules,
+            instruction_allocation_module_1.InstructionAllocationModule
         ],
         providers: [],
     })

@@ -6,19 +6,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GroupModule = void 0;
+exports.GroupModules = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
+const group_service_1 = require("../service/group.service");
+const fgroup_controller_1 = require("../frontend/fgroup.controller");
 const group_entity_1 = require("../entity/group.entity");
-const wechaty_service_1 = require("../service/wechaty.service");
-let GroupModule = class GroupModule {
+let GroupModules = class GroupModules {
 };
-exports.GroupModule = GroupModule;
-exports.GroupModule = GroupModule = __decorate([
+exports.GroupModules = GroupModules;
+exports.GroupModules = GroupModules = __decorate([
     (0, common_1.Module)({
         imports: [typeorm_1.TypeOrmModule.forFeature([group_entity_1.Group])],
-        providers: [wechaty_service_1.WechatyService],
-        exports: [wechaty_service_1.WechatyService],
+        providers: [group_service_1.GroupService],
+        controllers: [fgroup_controller_1.FGroupController],
     })
-], GroupModule);
+], GroupModules);
 //# sourceMappingURL=group.module.js.map

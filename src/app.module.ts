@@ -6,9 +6,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { FrontendModule } from './frontend/frontend.module';
 import { BackendModule } from './backend/backend.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import {TypeOrmLogger} from './common/typeorm_log'
-import { RequestMiddleware } from './middleware/request_middieware';
-import { WechatyService } from './service/wechaty.service';
+import {TypeOrmLogger} from './common/typeorm-log'
+import { RequestMiddleware } from './middleware/request-middieware';
+
 
 @Global() 
 @Module({
@@ -40,8 +40,8 @@ import { WechatyService } from './service/wechaty.service';
     ],
     
   controllers: [AppController],
-  providers: [AppService,UploadService,Logger,WechatyService],
-  exports:[Logger,WechatyService],
+  providers: [AppService,UploadService,Logger],
+  exports:[Logger],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

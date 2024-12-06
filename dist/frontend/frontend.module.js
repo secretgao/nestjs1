@@ -8,12 +8,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FrontendModule = void 0;
 const common_1 = require("@nestjs/common");
+const message_module_1 = require("../module/message.module");
+const group_module_1 = require("../module/group.module");
 let FrontendModule = class FrontendModule {
 };
 exports.FrontendModule = FrontendModule;
 exports.FrontendModule = FrontendModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
+        imports: [message_module_1.MessageModules, group_module_1.GroupModules],
     })
 ], FrontendModule);
 //# sourceMappingURL=frontend.module.js.map

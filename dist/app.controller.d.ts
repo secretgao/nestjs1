@@ -6,5 +6,7 @@ export declare class AppController {
     private readonly uploadService;
     constructor(appService: AppService, uploadService: UploadService);
     getHello(): string;
+    uploadImg(file: Express.Multer.File, res: Response): Promise<Response<any, Record<string, any>>>;
     uploadFile(file: Express.Multer.File, res: Response): Promise<Response<any, Record<string, any>>>;
+    downloadImg(filename: string, res: Response): Promise<void>;
 }

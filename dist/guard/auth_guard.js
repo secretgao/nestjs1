@@ -20,11 +20,7 @@ let AuthGuard = class AuthGuard {
     }
     canActivate(context) {
         const request = context.switchToHttp().getRequest();
-        const authHeader = request.headers['authorization'];
-        let token = '';
-        if (authHeader) {
-            token = authHeader.split(' ')[1];
-        }
+        const token = request.headers['authorization'];
         if (!token) {
             throw new common_1.UnauthorizedException('缺少授权令牌');
         }
@@ -33,7 +29,6 @@ let AuthGuard = class AuthGuard {
             throw new common_1.UnauthorizedException('无效的授权令牌');
         }
         request.user = user;
-        console.log(user);
         return true;
     }
 };

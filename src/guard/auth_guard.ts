@@ -7,7 +7,7 @@ export class AuthGuard implements CanActivate {
   constructor(private reflector: Reflector, private authService: AuthService) {}
 
   canActivate(context: ExecutionContext): boolean {
-    
+    /*
     const request = context.switchToHttp().getRequest();
     const authHeader = request.headers['authorization'];
     let token = '';
@@ -23,7 +23,23 @@ export class AuthGuard implements CanActivate {
     }
 
     request.user = user;
-    console.log(user);
+    
+    return true;
+*/
+
+    const request = context.switchToHttp().getRequest();
+    const token = request.headers['authorization'];
+     
+    if (!token) {
+      throw new UnauthorizedException('缺少授权令牌');
+    }
+    const user = this.authService.validateToken(token);
+    if (!user) {
+      throw new UnauthorizedException('无效的授权令牌');
+    }
+
+    request.user = user;
+    
     return true;
   }
 }
